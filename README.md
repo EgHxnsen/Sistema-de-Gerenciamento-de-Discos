@@ -1,6 +1,7 @@
 #SISTEMA DE GERENCIAMENTO DE DISCOS#
 
 -> Inteiramente em Java
+
 -> Simples e intuítivo
 
 <p align="center">
