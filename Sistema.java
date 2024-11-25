@@ -12,7 +12,8 @@ public class Sistema {
                      System.out.println("1. Adicionar Disco");
                      System.out.println("2. Remover Disco");
                      System.out.println("3. Listar Discos");
-                     System.out.println("4. Sair");
+                     System.out.println("4. Modificar Disco");
+                     System.out.println("5. Sair");
                      int opcao = scanner.nextInt();
                      scanner.nextLine(); // Consumir a nova linha
 
@@ -29,7 +30,7 @@ public class Sistema {
                             int quantidadeEstoque = scanner.nextInt();
                             System.out.println("Digite o preço:");
                             double preco = scanner.nextDouble();
-                            scanner.nextLine(); // Consumir a nova linha
+                            scanner.nextLine();
 
                             Disco disco = new Disco(nome, artista, genero, anoLancamento, quantidadeEstoque, preco);
                             discos.add(disco);
@@ -48,9 +49,30 @@ public class Sistema {
                             }
 
                      } else if (opcao == 4) {
+                            System.out.println("Digite o nome do disco a ser modificado:");
+                            String nome = scanner.nextLine();
+                            for (Disco disco : discos) {
+                                   if (disco.getNome().equalsIgnoreCase(nome)) {
+                                          System.out.println("Digite o novo nome do disco:");
+                                          disco.setNome(scanner.nextLine());
+                                          System.out.println("Digite o novo nome do artista:");
+                                          disco.setArtista(scanner.nextLine());
+                                          System.out.println("Digite o novo gênero:");
+                                          disco.setGenero(scanner.nextLine());
+                                          System.out.println("Digite o novo ano de lançamento:");
+                                          disco.setAnoLancamento(scanner.nextInt());
+                                          System.out.println("Digite a nova quantidade em estoque:");
+                                          disco.setQuantidadeEstoque(scanner.nextInt());
+                                          System.out.println("Digite o novo preço:");
+                                          disco.setPreco(scanner.nextDouble());
+                                          scanner.nextLine();
+                                          System.out.println("Disco modificado com sucesso!");
+                                          break;
+                                   }
+                            }
+                     } else if (opcao == 5) {
                             System.out.println("Saindo...");
                             break;
-
                      } else {
                             System.out.println("Opção inválida. Tente novamente.");
                      }
